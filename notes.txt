@@ -1,0 +1,3 @@
+Port 4242 is for SSH, not for HTML. It’s an arbitrary port chosen for SSH in this project for security reasons, to avoid using the default port (22).
+Tor is a privacy-focused network used to anonymize traffic. The torrc file is the configuration for Tor services, including setting up a hidden .onion service.
+Nginx configuration (nginx.conf) defines how your web server will handle HTTP requests, what content to serve, and what ports to listen on (usually port 80 for web traffic).
