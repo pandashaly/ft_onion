@@ -36,4 +36,5 @@ docker exec -it ft_onion bash
 service tor restart
 tail /var/lib/tor/hidden_service/hostname
 
+./start-tor-browser.desktop --detatch -new--window ...onion
 open tor browser
