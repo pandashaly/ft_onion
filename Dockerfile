@@ -25,3 +25,6 @@ COPY start_services.sh /usr/local/bin/start_services.sh
 RUN chmod +x /usr/local/bin/start_services.sh
 
 RUN echo "root:sud0_please_let_me_in" | chpasswd
+
+CMD ["/usr/local/bin/start_services.sh"]
+
