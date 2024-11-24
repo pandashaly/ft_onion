@@ -1,60 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-	<title>Donuts Élevés</title>
-	<link rel="preconnect" href="https://fonts.googleapis.com" />
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-	<link
-	  rel="stylesheet"
-	  href="https://fonts.googleapis.com/css2?family=Parisienne&family=Open+Sans:wght@300&display=swap"
-	/>
-	<link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donuts Élevés</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Parisienne&family=Open+Sans:wght@300&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .order-button {
+        display: block;
+        margin: 30px auto;
+        padding: 10px 20px;
+        background-color: #ff6347;
+        color: white;
+        font-size: 16px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      .order-button:hover {
+        background-color: #ff4500;
+      }
+
+      .message {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 20px;
+        color: #ff6347;
+      }
+    </style>
   </head>
   <body>
-	<main>
-	  <div class="menu-container">
-		<h1>Donut Debugger</h1>
-		<h2>Exquisite Donut Munchies</h2>
-		<!-- <div class="image-container">
-			<img src="image.png" alt="Donut Image" />
-	</div> -->
-		<!-- <img src="image.png" alt="Donut Image" /> -->
-	  <div class="menu-section">
-		<h2>   ... 🍩 ...</h2>
-		<h2> Our Menu</h2>
-		<h3>Bytesize Donuts</h3>
-		  <h4>Seg Fault Rasperry Creme <br>£3<br><br>
-			404 Pistachio <br>£3<br><br> 
-			GDB Honey Peach <br>£3</h4>
-		<h3> Funsize Donuts </h3>
-		<h4>Brioche Donut Choco Transcendence 
-		  <br>
-		  £7 <br><br>
-		  
-		  Marvin Maple Bacon Dream
-		  <br>
-		  £6 <br><br>
-		  
-		  Vanilla Bean Printf-perfection
-		  <br>
-		  £7 <br><br>
-		  
-		  42 Mascarpone & Berry Bliss
-		  <br>
-		  £7 <br><br>
-		  
-		  Moulinette Honey & Walnut
-		  <br>
-		  £5 <br><br>
-		  </h4>
-		  <h3> Pay Us A Visit </h3>
-		  <h4>
-			 <br>
-			 
-		  </h4>
-	  </div>
-	</main>
+    <main>
+      <div class="menu-container">
+        <h1>Donut Debugger</h1>
+        <h2>Exquisite Donut Munchies</h2>
+        <div class="menu-section">
+          <h2>   ... 🍩 ...</h2>
+          <h2> Our Menu</h2>
+          <h3>Bytesize Donuts</h3>
+          <h4>Seg Fault Raspberry Creme <br>£3<br><br>
+            404 Pistachio <br>£3<br><br> 
+            GDB Honey Peach <br>£3</h4>
+          <h3> Funsize Donuts </h3>
+          <h4>Brioche Donut Choco Transcendence 
+            <br>
+            £7 <br><br>
+            Marvin Maple Bacon Dream
+            <br>
+            £6 <br><br>
+            Vanilla Bean Printf-perfection
+            <br>
+            £7 <br><br>
+            42 Mascarpone & Berry Bliss
+            <br>
+            £7 <br><br>
+            Moulinette Honey & Walnut
+            <br>
+            £5 <br><br>
+          </h4>
+          <h3> Pay Us A Visit </h3>
+          <h4>
+            <br>
+          </h4>
+          <!-- Order Button -->
+          <button class="order-button" onclick="placeOrder()">Order Donuts Now</button>
+          <div id="orderMessage" class="message"></div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+        function placeOrder() {
+          const messageElement = document.getElementById('orderMessage');
+          messageElement.innerHTML = "Thank you for your order! 🍩🍩<br>We've just processed your payment and your details are now being securely transferred...😜";
+          setTimeout(() => {
+            messageElement.innerHTML += "<br><br>Your bank account and personal information are being reviewed for 'security purposes'... have a great day! 💸💸💸 - Donuts are on their way... maybe. 🍩";
+          }, 3000);
+        }
+      </script>      
   </body>
 </html>

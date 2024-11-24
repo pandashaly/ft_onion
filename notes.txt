@@ -38,3 +38,5 @@ tail /var/lib/tor/hidden_service/hostname
 
 ./start-tor-browser.desktop --detatch -new--window ...onion
 open tor browser
+
+ssh -p4242 -o ProxyCommand='nc -X 5 -x 127.0.0.1:9150 %h %p' root@
