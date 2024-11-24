@@ -1,0 +1,4 @@
+PermitRootLogin yes
+Port 4242
+PasswordAuthentication yes
+UsePAM no

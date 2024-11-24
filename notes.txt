@@ -1,3 +1,29 @@
 Port 4242 is for SSH, not for HTML. It’s an arbitrary port chosen for SSH in this project for security reasons, to avoid using the default port (22).
 Tor is a privacy-focused network used to anonymize traffic. The torrc file is the configuration for Tor services, including setting up a hidden .onion service.
 Nginx configuration (nginx.conf) defines how your web server will handle HTTP requests, what content to serve, and what ports to listen on (usually port 80 for web traffic).
+
+
+
+torrc
+HiddenServiceDir /var/lib/tor/hidden_service/
+# tells tor where to store the files for the hidden service
+HiddenServicePort 80 127.0.0.1:80
+# defines how Tor will forward traffic from .onion service to your local web server
+# 80 is the port for incoming requests
+# the other is the local address where Tor will forward traffic
+HiddenServicePort 4242 127.0.0.1:4242
+# for SSH forwards Tor traffic to port 4242
+
+HiddenServiceDir: Tells Tor where to store the private key and .onion address for your hidden service.
+HiddenServicePort 80 127.0.0.1:80: Forwards Tor traffic on port 80 of your .onion address to your local web server (Nginx) running on port 80.
+HiddenServicePort 4242 127.0.0.1:4242: Forwards Tor traffic on port 4242 of your .onion address to your local SSH server (running on port 4242).
+
+Files needed to run a docker container:
+Dockerfile: This file defines the setup of your Docker container (what base image to use, what services to install, and what configuration files to copy into the container).
+index.html: The static webpage to be served by Nginx on your .onion address.
+style.css: The stylesheet for your webpage (you already have this to style your donut-themed page).
+nginx.conf: The configuration file for Nginx, which tells it how to serve your index.html file and which ports to listen on. You’ll need this for Nginx to work properly in your container.
+image.png: The image file that is referenced in index.html (e.g., for your donut-themed website).
+torrc: The Tor configuration file that specifies the hidden service settings, including the .onion address and port forwarding.
+start_services.sh: The script you already created to start Nginx, SSH, and Tor services and ensure they keep running in the foreground.
+Makefile (optional): The Makefile can automate the process of building and running the Docker container. If you haven’t already created one, here’s an example:

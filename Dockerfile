@@ -18,14 +18,14 @@ COPY nginx.conf /etc/nginx/nginx.conf
 COPY index.html /usr/share/nginx/html/index.html
 COPY style.css /usr/share/nginx/html/style.css
 COPY image.png /usr/share/nginx/html/image.png
-COPY torrc /etc/tor/torrc
-COPY sshd_config /etc/ssh/sshd_config
-COPY start_services.sh /usr/local/bin/start_services.sh
+# COPY torrc /etc/tor/torrc
+# COPY sshd_config /etc/ssh/sshd_config
+# COPY start_services.sh /usr/local/bin/start_services.sh
 
-RUN chmod +x /usr/local/bin/start_services.sh
+# RUN chmod +x /usr/local/bin/start_services.sh
 
 CMD service nginx start && \
 	service ssh start && \
 	tor
 
-RUN echo "sud0_please_let_me_in" | chpasswd
+# RUN echo "sud0_please_let_me_in" | chpasswd
