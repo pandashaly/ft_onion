@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  ft_onion:
+    container_name: ft_onion
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: custom-ft_onion:latest
+    # ports:
+    #   - "8080:80"
+    #   - "4242:4242"
+    volumes:
+      - ./index.html:/usr/share/nginx/html/index.html
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./sshd_config:/etc/ssh/sshd_config
+      - ./torrc:/etc/tor/torrc
+      - ./style.css:/usr/share/nginx/html/style.css
+      - ./image.png:/usr/share/nginx/html/image.png
+
+    networks:
+      - ft_onion_network
+    # restart: unless-stopped
+
+networks:
+  ft_onion_network:
+    driver: bridge 

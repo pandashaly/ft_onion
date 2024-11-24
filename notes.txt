@@ -27,3 +27,13 @@ image.png: The image file that is referenced in index.html (e.g., for your donut
 torrc: The Tor configuration file that specifies the hidden service settings, including the .onion address and port forwarding.
 start_services.sh: The script you already created to start Nginx, SSH, and Tor services and ensure they keep running in the foreground.
 Makefile (optional): The Makefile can automate the process of building and running the Docker container. If you haven’t already created one, here’s an example:
+
+make build
+docker-compose up -d --build
+docker ps
+docker logs ft_onion
+docker exec -it ft_onion bash
+service tor restart
+tail /var/lib/tor/hidden_service/hostname
+
+open tor browser
